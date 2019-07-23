@@ -1,7 +1,68 @@
 window.addEventListener('load', recargar);
 
+
+
+// //pasar el parametro e
+// formulario.addEventListener('submit', function(e){
+//     e.preventDefault();
+//    console.log("me diste un click");
+
+   
+//    var datos= new FormData(formulario);
+
+//    //usando get y pasando de parametro los nombre
+//    //de los input donde se le mando la informacion
+//    //obtenes informacion de ello
+//    console.log(datos.get('usuario'));
+//    console.log(datos.get('pass'));
+
+   
+//    fetch('respuesta.php', {
+//        method: 'POST',
+//        body: datos
+//    }).then(res=>res.json())
+//    .then(data=>{
+
+//          if(data=="error"){
+//            respuesta.innerHTML=
+//          `<div class="alert alert-danger" role="alert">
+//          LLLENA TODOS LO CAMPO
+//           </div>`;
+//          }else{
+//            respuesta.innerHTML=
+//          `<div class="alert alert-primary" role="alert">
+//          ${data}
+//           </div>`;
+//          }
+         
+//      }).catch(e => console.error("ha sucedido algo"));
+
+
+
+
 //METODO PARA CARGA INFORMACION
+// function recargar(){
+//     var peticion=new XMLHttpRequest();
+//     peticion.onreadystatechange=function(){
+        
+
+//         if(this.readyState==4){
+//             document.getElementById('cuerpo').innerHTML=this.responseText;
+//             asignarEventos();
+//         }};
+//     peticion.open('GET', 'libro/cargarDatos');
+//     peticion.send();
+// }
+
+
 function recargar(){
+    
+    
+    fetch("")
+    
+    
+    
+    
     var peticion=new XMLHttpRequest();
     peticion.onreadystatechange=function(){
         
@@ -13,6 +74,16 @@ function recargar(){
     peticion.open('GET', 'libro/cargarDatos');
     peticion.send();
 }
+
+
+
+
+
+
+
+
+
+
 
 //METODO PARA ASIGNAR EVENTOS
 function asignarEventos(){
@@ -42,6 +113,9 @@ function accion() {
 
         
     var peticion=new XMLHttpRequest();
+    peticion.open('POST', 'Libro/'+this.value);
+    peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    peticion.send(datos);
     peticion.onreadystatechange=function(){
         
         if(this.readyState==4){
@@ -60,9 +134,7 @@ function accion() {
         // }
 
         // alert(datos);
-        peticion.open('POST', 'Libro/'+this.value);
-        peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        peticion.send(datos);
+        
     
 
 }
